@@ -1,4 +1,6 @@
 from django.db import models
+from common.models import (OvertimeType, DriveTimeCode, Status, ValuationType, PaymentType, OvertimeCode,
+    RateSchedule)
 
 
 class CustomerType(models.Model):
@@ -18,23 +20,6 @@ class Competitor(models.Model):
 
     def __unicode__(self):
         return u'%s: %s' % (self.type, self.name)
-
-class CustomerAddress(models.Model):
-    customer_address_id = models.AutoField(primary_key=True)
-    customer = models.ForeignKey(Customer, related_name='customer_addresses', null=True, blank=True)
-    location_name = models.CharField(max_length=50, null=True, blank=True)
-    street_1 = models.CharField(max_length=31, null=True, blank=True)
-    street_2 = models.CharField(max_length=31, null=True, blank=True)
-    city = models.CharField(max_length=31, null=True, blank=True)
-    state = models.CharField(max_length=29, null=True, blank=True)
-    zip_code = models.CharField(max_length=14, null=True, blank=True)
-    created_on = models.DateTimeField(auto_now_add=True)
-    created_by = models.CharField(max_length=50, null=True, blank=True)
-    modified_on = models.DateTimeField(auto_now=True)
-    modified_by = models.CharField(max_length=50, null=True, blank=True)
-
-    def __unicode__(self):
-        return u'%s: %s' % (self.customer.customer_name, self.location_name)
 
 class Customer(models.Model):
     customer_id = models.AutoField(primary_key=True)
@@ -108,3 +93,20 @@ class Customer(models.Model):
 
     def __unicode__(self):
         return u'%s' % (self.customer_name)
+
+class CustomerAddress(models.Model):
+    customer_address_id = models.AutoField(primary_key=True)
+    customer = models.ForeignKey(Customer, related_name='customer_addresses', null=True, blank=True)
+    location_name = models.CharField(max_length=50, null=True, blank=True)
+    street_1 = models.CharField(max_length=31, null=True, blank=True)
+    street_2 = models.CharField(max_length=31, null=True, blank=True)
+    city = models.CharField(max_length=31, null=True, blank=True)
+    state = models.CharField(max_length=29, null=True, blank=True)
+    zip_code = models.CharField(max_length=14, null=True, blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    created_by = models.CharField(max_length=50, null=True, blank=True)
+    modified_on = models.DateTimeField(auto_now=True)
+    modified_by = models.CharField(max_length=50, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s: %s' % (self.customer.customer_name, self.location_name)
