@@ -6,3 +6,15 @@ class HomeView(View):
 
     def get(self, request):
         return render(request, self.template_name)
+
+class SalesView(View):
+    template_name = 'sales.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+class OperationsView(View):
+    template_name = 'operations.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
