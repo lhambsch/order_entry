@@ -3,7 +3,7 @@ from django.db import models
 from estimates.models import Estimate
 from customers.models import CustomerAddress
 from contacts.models import Contact
-from common.models import Status, Location, ServiceLine, VehicleType
+from common.models import Status, Location, VehicleType
 
 class WorkOrderGroup(models.Model):
     work_order_group_id = models.AutoField(primary_key=True)

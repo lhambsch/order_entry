@@ -1,5 +1,7 @@
 from django.db import models
 
+from common.models import Status
+from customers.models import Customer
 
 class ContactTitle(models.Model):
     contact_title_id = models.AutoField(primary_key=True)

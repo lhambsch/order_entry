@@ -1,6 +1,6 @@
 from django.db import models
 from common.models import (OvertimeType, DriveTimeCode, Status, ValuationType, PaymentType, OvertimeCode,
-    RateSchedule)
+    RateSchedule, Location)
 
 
 class CustomerType(models.Model):

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from customers.models import Customer
 from contacts.models import Contact
 from common.models import (Status, Location, OvertimeType, DriveTimeCode, RateSchedule, ValuationType,
-    PricingType, OvertimeCode, AdditionalChargeType)
+    OvertimeCode, Contractor)
 
 class EstimateType(models.Model):
     estimate_type_id = models.AutoField(primary_key=True)
